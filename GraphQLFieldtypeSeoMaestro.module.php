@@ -149,7 +149,7 @@ class GraphQLFieldtypeSeoMaestro extends WireData implements Module
           'type' => Type::boolean(),
           'description' => 'Robots noIndex',
           'resolve' => function ($value) {
-            return (string) $value->robots->noIndex;
+            return (bool) $value->robots->noIndex;
           }
         ],
 
@@ -157,7 +157,7 @@ class GraphQLFieldtypeSeoMaestro extends WireData implements Module
           'type' => Type::boolean(),
           'description' => 'Robots noFollow',
           'resolve' => function ($value) {
-            return (string) $value->robots->noFollow;
+            return (bool) $value->robots->noFollow;
           }
         ],
 
