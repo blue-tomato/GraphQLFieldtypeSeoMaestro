@@ -17,7 +17,7 @@ class GraphQLFieldtypeSeoMaestro extends WireData implements Module
 
     return array(
       'title' => 'GraphQLFieldtypeSeoMaestro',
-      'version' => '1.0.0',
+      'version' => '1.0.1',
       'summary' => 'GraphQL support for SeoMaestro.',
       'href' => 'https://github.com/blue-tomato/GraphQLFieldtypeSeoMaestro',
       'requires' => ['ProcessGraphQL', 'FieldtypeSeoMaestro']
@@ -173,18 +173,26 @@ class GraphQLFieldtypeSeoMaestro extends WireData implements Module
     ]);
   }
 
+
   public static function getInputType(Field $field)
   {
     return new InputObjectType([
-      'name' => self::$inputName
+      'name' => self::$inputName,
+      'fields' => [
+        'meta_title' =>Type::string(),
+        'meta_description' =>Type::string(),
+        'meta_keywords' =>Type::string(),
+      ]
     ]);
   }
 
   /*
+  TODO: make setting value work
   public static function setValue(Page $page, Field $field, $value)
   {
     $fieldName = $field->name;
-    $page->$fieldName->meta->title = $value["metaTitle"];
+    $page->$fieldName->[] = $value;
   }
   */
+
 }
